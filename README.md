@@ -1,4 +1,4 @@
-FocusList 📋
+<pre>FocusList 📋
 A modular Django-based task management system featuring custom request analysis and user authentication.
 
 
@@ -44,4 +44,4 @@ Custom Middleware: Request analysis tracking via the request_analysis app
 
 Dynamic Templates: Modular UI using base.html inheritance
 
-Environment Safety: Sensitive Data is kept out of source control via .env
+Environment Safety: Sensitive Data is kept out of source control via .env</pre>
