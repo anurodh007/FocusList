@@ -5,12 +5,10 @@ __pycache__/
 *$py.class
 
 # --- Database ---
-# We ignore the local SQLite database to keep the repo clean
 db.sqlite3
 db.sqlite3-journal
 
 # --- Environment Secrets ---
-# Crucial: This keeps your SECRET_KEY and DEBUG settings private
 .env
 .venv
 env/
@@ -18,7 +16,6 @@ venv/
 ENV/
 
 # --- Media & Static ---
-# Ignore user-uploaded files, but keep the directory structure if needed
 /media/
 /static/
 !/static/.gitkeep
