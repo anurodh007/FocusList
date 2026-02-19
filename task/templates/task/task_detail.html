@@ -1,0 +1,28 @@
+{% extends 'task/base.html' %}
+{% block content %}
+
+    <div class="list-group">
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-1 {% if task.is_completed %}text-decoration-line-through text-muted {% endif %}">
+                    {{ object.title }}
+                </h5>
+                <small>{{ object.description }}</small>
+            </div>
+
+            <span class="badge {% if task.is_completed %}bg-success{% else %}bg-warning{% endif %}">
+                {{ object.is_completed|yesno:"Done,Pending" }}
+            </span>
+
+            <span>
+                <button class="btn-warning rounded">
+                    <a class="link-dark text-decoration-none" href="{% url 'task-update' object.id %}">Update</a>
+                </button>
+                <button class="btn-danger rounded">
+                    <a class="link-light text-decoration-none" href="{% url 'task-delete' object.id %}">Delete</a>
+                </button>
+            </span>
+        </div>
+    </div>
+
+{% endblock content %}

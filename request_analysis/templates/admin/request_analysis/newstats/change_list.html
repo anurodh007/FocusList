@@ -1,0 +1,53 @@
+{% extends 'admin/change_list.html' %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock extrahead %}
+
+{% block content %}
+    <div style="width: 80%; background-color: beige;">
+        <canvas id="myChart" style="height: 400px; width: 80%; margin-bottom: 25px;"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        const chartData = {{ chart_data|safe }}
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(chartData),
+                datasets: [{
+                    label: '# of visits',
+                    data: Object.values(chartData),
+                    backgroundColor: [
+                        'rgba(92, 20, 145, 0.7)',
+                        'rgba(176, 107, 145, 0.7)',
+                        'rgba(124, 209, 67, 0.7)',
+                        'rgba(241, 225, 61, 0.7)',
+                        'rgba(59, 177, 211, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(92, 20, 145, 1.0)',
+                        'rgba(176, 107, 145, 1.0)',
+                        'rgba(124, 209, 67, 1.0)',
+                        'rgba(241, 225, 61, 1.0)',
+                        'rgba(59, 177, 211, 1.0)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        });
+    </script>
+
+    {{ block.super }}
+{% endblock content %}

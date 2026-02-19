@@ -1,0 +1,16 @@
+{% extends 'task/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form class="border rounded p-2" method="post">
+        <fieldset>
+            {% csrf_token %}
+            <legend>Task Info</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <button class="btn-primary rounded" type="submit">Save</button>
+    </form>
+    <button class="btn-danger mt-2 rounded"><a class="link-light text-decoration-none" href="{% url 'task-index' %}">Cancel</a></button>
+
+{% endblock content %}

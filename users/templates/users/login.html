@@ -1,0 +1,21 @@
+{% extends 'task/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form class="border rounded p-3" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Login</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div>
+            <button class="btn btn-primary" type="submit">Sign In</button>
+            <a class="small ms-3" href="{% url 'password_reset' %}">Forgot Password?</a>
+        </div>
+    </form>
+    <p class="small text-muted">
+        Need an account? <a class="ms-1" href="{% url 'register' %}">Sign Up</a>
+    </p>
+
+{% endblock content %}

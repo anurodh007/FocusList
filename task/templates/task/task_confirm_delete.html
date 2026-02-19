@@ -1,0 +1,15 @@
+{% extends 'task/base.html' %}
+
+{% block content %}
+
+    <form class="border rounded p-2" method="post">
+        <fieldset>
+            {% csrf_token %}
+            <legend>Delete Task</legend>
+        </fieldset>
+        <h2>Are you sure you want to delete "{{ object.title }}" ?</h2>
+        <button class="btn btn-danger rounded me-2 btn-sm" type="submit">Yes, Delete</button>
+        <a class="btn btn-secondary rounded btn-sm" href="{% url 'task-index' %}">Cancel</a>
+    </form>
+
+{% endblock content %}
